@@ -1,0 +1,7 @@
+<?php
+
+$albumDAO = new AlbumDAO();
+
+
+
+
