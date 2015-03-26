@@ -2,9 +2,9 @@
 class DAO {
 
 	private static $dbHost = "localhost";
-	private static $dbName = "mycollection";
-	private static $dbUser = "root";
-	private static $dbPass = "root";
+	private static $dbName = "komen_gokken";
+	private static $dbUser = "gokker";
+	private static $dbPass = "test";
 
 	private static $sharedPDO;
 
