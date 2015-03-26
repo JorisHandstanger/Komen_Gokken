@@ -1,18 +1,21 @@
 var template = require('../../../_hbs/logins.hbs');
-var AlbumCollection = require('../collections/GokkenCollection.js');
-
+var KomenCollection = require('../collections/GokkenCollection.js');
 
 var LoginView = Backbone.View.extend({
 
 	template: template,
+	tagName: 'main',
+	className: "cd-main-content",
 
 
 	initialize: function(){
-
+		console.log("view loaded")
 
 		this.collection = new KomenCollection();
 		this.listenTo(this.collection, 'sync', this.renderlogins);
 		this.collection.fetch();
+
+
 
 	},
 
