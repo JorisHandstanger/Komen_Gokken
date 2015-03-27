@@ -2,7 +2,7 @@
 		<ul>
 
 		<li><a href="#0"><span>Home</span></a></li>
-		<li><a href="#0"><span>Overzicht dagen</span></a></li>
+		<li><a href="#0"><span>Kalender</span></a></li>
 		<li><a href="#0"><span>Klassement</span></a></li>
 		<li><a href="#0"><span>Hall of fame</span></a></li>
 
@@ -35,7 +35,7 @@
 
 		</div>
 
-		<p>ben je nog niet geregistreerd ? <a href="index.php?page=register">Registreer</a> nu</p>
+		<p>Ben je nog niet geregistreerd ? <a href="index.php?page=register">Registreer</a> nu.</p>
 
 		<header class="cd-header">
 

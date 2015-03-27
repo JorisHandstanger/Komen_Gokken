@@ -1,5 +1,5 @@
 var navView = require('../views/NavView.js');
-var slotmView = require('../views/slotmView.js');
+var slotview = require('../views/SlotView.js');
 var homeview = require('../views/HomeView.js');
 var rouletteview = require('../views/RouletteView.js');
 
@@ -27,25 +27,14 @@ var Application = Backbone.Router.extend({
 	},
 
 	indeling: function(){
+
 		this.empty();
 
 		this.nav = new navView();
 		$('.container').append(this.nav.render().el);
 
-		this.slotmachine = new slotmView();
+		this.slotmachine = new slotview();
 		$('.container').append(this.slotmachine.render().el);
-
-	},
-
-	home: function(){
-
-		this.empty();
-
-		this.nav = new navView();
-		$('.container').append(this.nav.render().el);
-
-		this.homeview = new slotmView();
-		$('.container').append(this.homeview.render().el);
 
 	},
 
@@ -56,10 +45,23 @@ var Application = Backbone.Router.extend({
 		this.nav = new navView();
 		$('.container').append(this.nav.render().el);
 
-		this.roulette = new RouletteView();
-		$('.container').append(this.roulette.render().el);
+		this.deelnemen = new rouletteview();
+		$('.container').append(this.deelnemen.render().el);
 
-	}
+
+	},
+
+	home: function(){
+
+		this.empty();
+
+		this.nav = new navView();
+		$('.container').append(this.nav.render().el);
+
+		this.home = new homeview();
+		$('.container').append(this.home.render().el);
+
+	},
 
 });
 

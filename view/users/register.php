@@ -2,7 +2,7 @@
 		<ul>
 
 		<li><a href="#0"><span>Home</span></a></li>
-		<li><a href="#0"><span>Overzicht dagen</span></a></li>
+		<li><a href="#0"><span>Kalender</span></a></li>
 		<li><a href="#0"><span>Klassement</span></a></li>
 		<li><a href="#0"><span>Hall of fame</span></a></li>
 
@@ -50,7 +50,7 @@
 
     <div class="form-group<?php if(!empty($errors['spel'])) echo ' has-error'; ?>">
         <div class="input-container">
-            <input type="spel" placeholder="Jou favoriete spel"  name="spel" id="registerConfirmPassword" class="formregister" />
+            <input type="spel" placeholder="Jouw favoriete spel"  name="spel" id="registerConfirmPassword" class="formregister" />
             <?php if(!empty($errors['spel'])) echo '<span class="error-message">' . $errors['spel'] . '</span>'; ?>
         </div>
     </div>

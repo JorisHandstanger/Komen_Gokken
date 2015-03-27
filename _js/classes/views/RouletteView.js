@@ -1,4 +1,4 @@
-var template = require('../../../_hbs/slotmachine.hbs');
+var template = require('../../../_hbs/roulette.hbs');
 
 var RouletteView = Backbone.View.extend({
 

@@ -169,6 +169,8 @@ Main
 
 		a {
 
+			text-transform: uppercase;
+    	font-family: 'phosphateinlineroman';
 			letter-spacing: .12em;
 			position: relative;
 			display: block;
@@ -176,7 +178,7 @@ Main
 			height: 100%;
 			border-bottom: 1px solid darken(#fff, .5%);
 			color: $txt-color2;
-			font-size: 1em;
+			font-size: 1.3em;
 
 
 			span {
@@ -429,9 +431,24 @@ input:focus {
 
 }
 
-.titlebg2 {
+.title {
 
-	width: 280px;
+	.titlebg2 {
+
+		width: 270px;
+
+	}
+
+	p {
+
+    font-family: 'rangeritalic_shadow';
+		color: #1D1D21;
+		text-align: center;
+		margin-top: 0px;
+		font-size: 1.5em;
+		margin-top: 15px;
+		margin-left: -3px;
+	}
 
 }
 
