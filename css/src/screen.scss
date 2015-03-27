@@ -199,8 +199,8 @@ Main
 	.cd-close-menu {
 
 		position: absolute;
-		top: 20px;
-		right: 18px;
+		top: 13px;
+		right: 10px;
 		display: inline-block;
 		border-radius: 50%;
 		width: 40px;
@@ -270,11 +270,11 @@ Main
 }
 
 .cd-intro {
+
 	position: relative;
 	height: 100%;
 	background-color: $bg-color;
 	background-size: cover;
-
 
 	h1 {
 
@@ -284,29 +284,22 @@ Main
 		font-weight: bold;
 		color: $txt-color1;
 
-
 	}
 
 	p {
 
 		position: absolute;
 		@include center;
-		margin-top: 200px;
+		margin-top: 193px;
 		font-size: .8em;
 		color: #c4c4c4;
 		width: 270px;
-		margin-left: 10px;
+		margin-left: 8px;
 
 		a {
 			text-decoration: none;
 			border-bottom: 1px solid #c4c4c4;
 			color: #c4c4c4;
-		}
-
-		@media only screen
-			and (max-width: 680px) {
-			font-size: 3.5vw;
-
 		}
 
 	}
@@ -321,8 +314,11 @@ Main
 	}
 
 	.no-js & {
+
 		height: 640px;
+
 	}
+
 }
 
 .login {
@@ -417,13 +413,27 @@ input:focus {
 
 // Slotmachine
 
+.default {
+
+	width: 270px;
+	margin-top: 20px;
+
+}
+
+.mainApp {
+
+	position: absolute;
+	@include center;
+	width: 270px;
+	margin-top: -140px;
+
+}
+
 .titlebg2 {
 
 	width: 280px;
 
 }
-
-
 
 
 

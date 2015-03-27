@@ -26,7 +26,6 @@
 
 <form class="" action="index.php?page=register" method="post" class="">
 
-		<img class="titlebg" src="assets/svg/titleBG.svg" alt="">
 
     <div class="form-group<?php if(!empty($errors['email'])) echo ' has-error'; ?>">
         <div class="input-container">
