@@ -42,6 +42,7 @@ class UsersController extends Controller {
 	}
 
 	public function adduser() {
+
   	$confirm = true;
   	$errors = array();
   	$data = $_POST;
@@ -95,6 +96,15 @@ class UsersController extends Controller {
 			if($_POST['confirm_password'] != $_POST['password']) {
 				$errors['confirm_password'] = 'Passwords mismatch';
 			}
+
+			if(empty($_POST['spel'])){
+				$errors['spel'] = 'enter your favorite game';
+			}
+
+			if(empty($_POST['adres'])){
+				$errors['adres'] = 'enter your adres';
+			}
+
 			//als er geen fouten zijn -> password hashen en dergerlijke
 			if(empty($errors)){
 				$hasher = new \Phpass\Hash;
@@ -102,7 +112,8 @@ class UsersController extends Controller {
 				$data = array();
 				$data['email'] = $_POST['email'];
 				$data['password'] = $passwordHash;
-
+				$data['spel'] = $_POST['spel'];
+				$data['adres'] = $_POST['adres'];
 				$insertedUser = $this->userDAO->insert($data);
 				if(!empty($insertedUser)){
 					$_SESSION['info'] = 'Registration Succes';

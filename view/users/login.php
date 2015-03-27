@@ -2,9 +2,9 @@
 		<ul>
 
 		<li><a href="#0"><span>Home</span></a></li>
-		<li><a href="#0"><span>Overzicht</span></a></li>
+		<li><a href="#0"><span>Overzicht dagen</span></a></li>
 		<li><a href="#0"><span>Klassement</span></a></li>
-		<li><a href="#0"><span>Sfeerfoto's</span></a></li>
+		<li><a href="#0"><span>Hall of fame</span></a></li>
 
 	</ul>
 

@@ -24,11 +24,13 @@ class UserDAO extends DAO {
 	public function insert($data) {
 		$errors = $this->getValidationErrors($data);
 		if(empty($errors)) {
-			$sql = "INSERT INTO `users` (`email`, `password`)
-						VALUES (:email, :password)";
+			$sql = "INSERT INTO `users` (`email`, `password`, `spel`, `adres`)
+						VALUES (:email, :password, :spel, :adres)";
 			$stmt = $this->pdo->prepare($sql);
 			$stmt->bindValue(':email', $data['email']);
 			$stmt->bindValue(':password', $data['password']);
+			$stmt->bindValue(':spel', $data['spel']);
+			$stmt->bindValue(':adres', $data['adres']);
 			if($stmt->execute()) {
 				$insertedId = $this->pdo->lastInsertId();
 				return $this->selectById($insertedId);
@@ -44,6 +46,14 @@ class UserDAO extends DAO {
 		}
 		if(empty($data['password'])) {
 			$errors['password'] = "Please fill in password";
+		}
+
+		if(empty($data['spel'])){
+			$errors['spel'] = "Please fill in your favorite game";
+		}
+
+		if(empty($data['adres'])){
+			$errors['spel'] = "Please fill in your adres";
 		}
 
 		return $errors;
