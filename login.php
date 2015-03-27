@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Gregory Vekemans</title>
+	<title>Komen Gokken</title>
 
 	<link rel="stylesheet" href="css/screen.css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">

@@ -1,9 +1,9 @@
-var LoginView = require('../views/LoginView.js');
 var navView = require('../views/NavView.js');
+var slotmView = require('../views/slotmView.js');
 
 var Application = Backbone.Router.extend({
 	routes: {
-		"logins": "logins",
+		"week": "week",
 		"*actions": "default"
 	},
 
@@ -15,17 +15,17 @@ var Application = Backbone.Router.extend({
 	},
 
 	default : function(){
-		this.navigate("logins", {trigger: true});
+		this.navigate("week", {trigger: true});
 
 	},
 
-	logins: function(){
+	week: function(){
 		this.empty();
 		this.nav = new navView();
 		$('.container').append(this.nav.render().el);
 
-		this.logins = new LoginView();
-		$('.container').append(this.logins.render().el);
+		this.slotmachine = new slotmView();
+		$('.container').append(this.slotmachine.render().el);
 
 	},
 
