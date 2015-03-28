@@ -59,4 +59,27 @@ class UserDAO extends DAO {
 		return $errors;
 	}
 
+		public function selectByIdCMS($idCMS) {
+
+		$sql = "SELECT * FROM `userCMS` WHERE `id` = :id";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':id',$idCMS);
+		$stmt->execute();
+		return $stmt->fetch(PDO::FETCH_ASSOC);
+
+	}
+
+	public function selectByEmailCMS($emailCMS) {
+
+		$sql = "SELECT * FROM `userCMS` WHERE `emailCMS` = :emailCMS";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':emailCMS',$emailCMS);
+		$stmt->execute();
+		return $stmt->fetch(PDO::FETCH_ASSOC);
+
+	}
+
 }
+
+
+

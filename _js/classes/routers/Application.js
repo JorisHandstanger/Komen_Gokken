@@ -42,8 +42,6 @@ var Application = Backbone.Router.extend({
 
 		this.empty();
 
-		this.nav = new navView();
-		$('.container').append(this.nav.render().el);
 
 		this.deelnemen = new rouletteview();
 		$('.container').append(this.deelnemen.render().el);

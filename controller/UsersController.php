@@ -10,7 +10,41 @@ class UsersController extends Controller {
 	private $userDAO;
 
 	function __construct() {
+
 		$this->userDAO = new UserDAO();
+
+	}
+
+	public function cmslogin(){
+
+			$errors = array();
+
+			if(!empty($_POST)) {
+				if(empty($_POST['emailCMS'])) {
+					$errors['emailCMS'] = 'Please enter your email';
+				}
+				if(empty($_POST['passwordCMS'])) {
+					$errors['passwordCMS'] = 'Please enter your password';
+				}
+				if(empty($errors)) {
+					$existing = $this->userDAO->selectByEmailCMS($_POST['emailCMS']);
+					if(!empty($existing)) {
+						$hasher = new \Phpass\Hash;
+						if ($hasher->checkPassword($_POST['passwordCMS'], $existing['passwordCMS'])) {
+							$_SESSION['user'] = $existing;
+						} else {
+							$_SESSION['error'] = 'Unknown email / password';
+						}
+					} else {
+						$_SESSION['error'] = 'Unknown email / password';
+					}
+				} else {
+					$_SESSION['error'] = 'Unknown email / password';
+				}
+
+					$this->redirect('index.php?page=cms');
+			}
+
 	}
 
 	public function login(){
