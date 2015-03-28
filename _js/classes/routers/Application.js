@@ -1,5 +1,5 @@
 var navView = require('../views/NavView.js');
-var slotview = require('../views/SlotView.js');
+var slotmachineview = require('../views/SlotMachineView.js');
 var homeview = require('../views/HomeView.js');
 var rouletteview = require('../views/RouletteView.js');
 
@@ -30,8 +30,10 @@ var Application = Backbone.Router.extend({
 
 		this.empty();
 
+		this.nav = new navView();
+		$('.container').append(this.nav.render().el);
 
-		this.slotmachine = new slotview();
+		this.slotmachine = new slotmachineview();
 		$('.container').append(this.slotmachine.render().el);
 
 	},
@@ -39,6 +41,9 @@ var Application = Backbone.Router.extend({
 	deelnemen: function(){
 
 		this.empty();
+
+		this.nav = new navView();
+		$('.container').append(this.nav.render().el);
 
 		this.deelnemen = new rouletteview();
 		$('.container').append(this.deelnemen.render().el);
