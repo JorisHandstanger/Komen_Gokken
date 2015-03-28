@@ -19,10 +19,21 @@ var RouletteView = Backbone.View.extend({
 
 	DraaiRoulette: function(e){
 
-
 		console.log('[RouletteView] clicked');
+    $('.roulettePopUp').delay( 3000 ).fadeIn( 600 );
 
-     $('.roulettePopUp').show();
+    $('.rouletteSVG').css({
+        "-webkit-transform": "rotate(660deg)",
+        "-moz-transform": "rotate(660deg)",
+        "transform": "rotate(660deg)"
+    });
+
+    $('.rouletteBol').css({
+        "-webkit-transform": "rotate(235deg)",
+        "-moz-transform": "rotate(235deg)",
+        "transform": "rotate(235deg)"
+    });
+
 
 	},
 

@@ -8,7 +8,15 @@ var SlotMachineView = Backbone.View.extend({
 	className: "cd-main-content",
 
 	events: {
-		'click .slotbutton': 'roll'
+		'click .slotbutton': 'roll',
+		'click .btnProceed2': 'GaNaarHome'
+
+	},
+
+	GaNaarHome: function() {
+
+		 Window.Application.navigate("home", {trigger: true, replace:true});
+
 	},
 
 	initialize: function(){
@@ -49,6 +57,10 @@ var SlotMachineView = Backbone.View.extend({
 	},
 
 	roll: function(){
+
+
+    $('.roulettePopUp').delay( 7000 ).fadeIn( 600 );
+
 		console.log("rolling");
 
 		this.slot1.roll();

@@ -30,9 +30,6 @@ var Application = Backbone.Router.extend({
 
 		this.empty();
 
-		this.nav = new navView();
-		$('.container').append(this.nav.render().el);
-
 		this.slotmachine = new slotmachineview();
 		$('.container').append(this.slotmachine.render().el);
 

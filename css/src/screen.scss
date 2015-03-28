@@ -533,10 +533,57 @@ input:focus {
 }
 
 .rouletteSVG {
-	position: absolute;
-	@include center;
 	width: 230px;
 	margin-top: 25px;
+	position: absolute;
+	left: 50%;
+	margin-left: -115px;
+	margin-top: 300px;
+
+	@media only screen
+	and (max-width: 500px) {
+
+		margin-top: 140px;
+
+	}
+
+   -webkit-transition-duration: 2s;
+    -moz-transition-duration: 2s;
+    -o-transition-duration: 2s;
+    transition-duration: 2s;
+
+    -webkit-transition-property: -webkit-transform;
+    -moz-transition-property: -moz-transform;
+    -o-transition-property: -o-transform;
+    transition-property: transform;
+
+}
+
+.rouletteBol {
+	width: 230px;
+	margin-top: 25px;
+	position: absolute;
+	left: 50%;
+	margin-left: -115px;
+	margin-top: 300px;
+
+	@media only screen
+	and (max-width: 500px) {
+
+		margin-top: 140px;
+
+	}
+
+   -webkit-transition-duration: 2s;
+    -moz-transition-duration: 2s;
+    -o-transition-duration: 2s;
+    transition-duration: 2s;
+
+    -webkit-transition-property: -webkit-transform;
+    -moz-transition-property: -moz-transform;
+    -o-transition-property: -o-transform;
+    transition-property: transform;
+
 }
 
 .btnProceed {
@@ -573,10 +620,10 @@ input:focus {
 	position: absolute;
 	@include center;
 	width: 260px;
-	opacity: 0.9;
 	height: 160px;
 	background-color: #FFF;
 	border-radius: 10px;
+	margin-top: 30px;
 
 	display: none;
 
