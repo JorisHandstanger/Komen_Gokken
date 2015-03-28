@@ -6,6 +6,18 @@ var RouletteView = Backbone.View.extend({
 	tagName: 'main',
 	className: "cd-main-content",
 
+	events: {
+		'click .btnProceed': 'GaNaarIndeling'
+	},
+
+	GaNaarIndeling: function(e){
+
+		console.log('[RouletteView] clicked');
+
+		Window.Application.navigate("indeling", {trigger: true, replace:true});
+
+
+	},
 
 	initialize: function(){
 		this.render();

@@ -22,7 +22,7 @@ var Application = Backbone.Router.extend({
 
 	default : function(){
 
-		this.navigate("indeling", {trigger: true});
+		this.navigate("deelnemen", {trigger: true});
 
 	},
 
@@ -30,8 +30,6 @@ var Application = Backbone.Router.extend({
 
 		this.empty();
 
-		this.nav = new navView();
-		$('.container').append(this.nav.render().el);
 
 		this.slotmachine = new slotview();
 		$('.container').append(this.slotmachine.render().el);
@@ -41,9 +39,6 @@ var Application = Backbone.Router.extend({
 	deelnemen: function(){
 
 		this.empty();
-
-		this.nav = new navView();
-		$('.container').append(this.nav.render().el);
 
 		this.deelnemen = new rouletteview();
 		$('.container').append(this.deelnemen.render().el);

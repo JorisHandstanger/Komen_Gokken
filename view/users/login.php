@@ -53,7 +53,7 @@
 	$('.cd-main-content').addClass('move-out');
 	$('.main-nav').addClass('is-visible');
 	$('.cd-shadow-layer').addClass('is-visible');
-
+	$('.cd-menu-trigger').prop("disabled", true);
 	$(".cd-main-content").css("overflow-x, hidden;");
 
 	});
