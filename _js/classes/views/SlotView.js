@@ -26,9 +26,7 @@ var SlotView = Backbone.View.extend({
 	},
 
 	setupCanvas: function() {
-		var players = ["persoon1", "persoon2", "persoon3", "persoon4"];
-
-		this.ypos = 0;
+		var players = this.options.players;
 
 		var context = this.ctx[0].getContext('2d');
 		var resultctx = this.result[0].getContext('2d');
@@ -36,17 +34,27 @@ var SlotView = Backbone.View.extend({
 		var imgArray = [];
 		var imgCurr = 0;
 
-		this.ctx.height = (64*players.length)*2;
+		this.ctx.height = (64*players.length);
 
-		for(i=1; i <= players.length*2-1; i++){
+		for(i=1; i <= players.length; i++){
 			imgArray[imgCurr] = new Image();
+			var thisY = (i * 64) - 64;
 
 			imgArray[imgCurr].onload = (function () {
-          var thisY = (i * 64) - 64;
+					var thisY = (i * 64) - 64;
+					var e = i;
 
           return function () {
               context.drawImage(this, 0, thisY);
+
+              var user;
+
+              user = players[e-1];
+
+							context.font = "8pt Calibri";
+         			context.fillText(user, 3, thisY+54);
           };
+
       }());
 
 			if(i>4){
@@ -62,7 +70,7 @@ var SlotView = Backbone.View.extend({
 
 		lastImage.onload = (function () {
         return function () {
-            context.drawImage(this, 0, (7 * 64));
+            context.drawImage(this, 0, (4 * 64));
         };
     }());
 
@@ -70,15 +78,17 @@ var SlotView = Backbone.View.extend({
 
 		var resultImg = new Image();
 
+		var user = players[(this.options.user) - 1];
+
 		resultImg.onload = (function () {
         return function () {
             resultctx.drawImage(resultImg, 0, 0);
+            resultctx.font = "8pt Calibri";
+         		resultctx.fillText(user, 3, 54);
         };
     }());
 
 		resultImg.src = './assets/img/' + this.options.user + '.png';
-		resultctx.fillStyle="#FFFFFF";
-		resultctx.fillRect(0,0,66,66);
 	},
 
 	roll: function(){
@@ -91,7 +101,7 @@ var SlotView = Backbone.View.extend({
 		setTimeout(function() {
 			_this.ctx.css("margin-top", "-512px");
 		  _this.result.animate({marginTop:"0"}, 300, "linear");
-		}, 3000);
+		}, 2700);
 
 	},
 

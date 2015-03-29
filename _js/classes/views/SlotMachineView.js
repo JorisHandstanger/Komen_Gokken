@@ -20,24 +20,30 @@ var SlotMachineView = Backbone.View.extend({
 	},
 
 	initialize: function(){
+		var users = ["jan", "pier", "tjores", "corneel"];
+
 		this.slot1 = new SlotView({
 			id: 1,
-			user: 1
+			user: 2,
+			players: users
 		});
 
 		this.slot2 = new SlotView({
 			id: 2,
-			user: 1
+			user: 3,
+			players: users
 		});
 
 		this.slot3 = new SlotView({
 			id: 3,
-			user: 1
+			user: 3,
+			players: users
 		});
 
 		this.slot4 = new SlotView({
 			id: 4,
-			user: 1
+			user: 4,
+			players: users
 		});
 
 	},
@@ -60,8 +66,6 @@ var SlotMachineView = Backbone.View.extend({
 
 
     $('.roulettePopUp').delay( 7000 ).fadeIn( 600 );
-
-		console.log("rolling");
 
 		this.slot1.roll();
 
