@@ -32,6 +32,8 @@ var HomeView = Backbone.View.extend({
 	$('.cd-main-content').removeClass('move-out');
 	$('.main-nav').removeClass('is-visible');
 	$('.cd-shadow-layer').removeClass('is-visible');
+	$('.cd-menu-trigger').prop("disabled", false);
+
 	});
 
 	},
