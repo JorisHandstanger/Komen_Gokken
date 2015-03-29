@@ -95,7 +95,6 @@ var SlotView = Backbone.View.extend({
 
 		this.ctx[0].className = "canvas animating";
 
-		console.log(this.ctx[0].className);
 		var _this = this;
 
 		setTimeout(function() {

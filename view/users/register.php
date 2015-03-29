@@ -44,6 +44,20 @@
         </div>
     </div>
 
+    <div class="form-group<?php if(!empty($errors['voornaam'])) echo ' has-error'; ?>">
+        <div class="input-container">
+            <input type="voornaam" placeholder="voornaam"  name="voornaam" id="registerConfirmPassword" class="formregister" />
+            <?php if(!empty($errors['voornaam'])) echo '<span class="error-message">' . $errors['voornaam'] . '</span>'; ?>
+        </div>
+    </div>
+
+    <div class="form-group<?php if(!empty($errors['achternaam'])) echo ' has-error'; ?>">
+        <div class="input-container">
+            <input type="achternaam" placeholder="achternaam"  name="achternaam" id="registerConfirmPassword" class="formregister" />
+            <?php if(!empty($errors['achternaam'])) echo '<span class="error-message">' . $errors['achternaam'] . '</span>'; ?>
+        </div>
+    </div>
+
     <div class="form-group input-container">
 
       <button value="register" type="submit" class="registerlink">Registreer</button>

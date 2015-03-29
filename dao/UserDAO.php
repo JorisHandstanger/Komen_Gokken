@@ -1,7 +1,20 @@
 <?php
-require_once WWW_ROOT . 'dao' . DS . 'DAO.php';
+require_once WWW_ROOT . 'dao' . DIRECTORY_SEPARATOR . 'DAO.php';
 class UserDAO extends DAO {
 
+	public function selectAll() {
+		$sql = "SELECT * FROM `users`";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->execute();
+		return $stmt->fetchAll(PDO::FETCH_ASSOC);
+	}
+
+	public function selectNames() {
+		$sql = "SELECT id, voornaam, achternaam FROM `users`";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->execute();
+		return $stmt->fetchAll(PDO::FETCH_ASSOC);
+	}
 
 	public function selectById($id) {
 		$sql = "SELECT * FROM `users` WHERE `id` = :id";
@@ -24,13 +37,15 @@ class UserDAO extends DAO {
 	public function insert($data) {
 		$errors = $this->getValidationErrors($data);
 		if(empty($errors)) {
-			$sql = "INSERT INTO `users` (`email`, `password`, `spel`, `adres`)
-						VALUES (:email, :password, :spel, :adres)";
+			$sql = "INSERT INTO `users` (`email`, `password`, `spel`, `adres`, `voornaam`, `achternaam`)
+						VALUES (:email, :password, :spel, :adres, :voornaam, :achternaam)";
 			$stmt = $this->pdo->prepare($sql);
 			$stmt->bindValue(':email', $data['email']);
 			$stmt->bindValue(':password', $data['password']);
 			$stmt->bindValue(':spel', $data['spel']);
 			$stmt->bindValue(':adres', $data['adres']);
+			$stmt->bindValue(':voornaam', $data['achternaam']);
+			$stmt->bindValue(':achternaam', $data['voornaam']);
 			if($stmt->execute()) {
 				$insertedId = $this->pdo->lastInsertId();
 				return $this->selectById($insertedId);
@@ -42,18 +57,26 @@ class UserDAO extends DAO {
 	public function getValidationErrors($data) {
 		$errors = array();
 		if(empty($data['email'])) {
-			$errors['email'] = "Please fill in email";
+			$errors['email'] = "Gelieve je email in te vullen";
 		}
 		if(empty($data['password'])) {
-			$errors['password'] = "Please fill in password";
+			$errors['password'] = "Gelieve je passwoord in te vullen";
 		}
 
 		if(empty($data['spel'])){
-			$errors['spel'] = "Please fill in your favorite game";
+			$errors['spel'] = "Gelieve je favoriete game in te vullen";
 		}
 
 		if(empty($data['adres'])){
-			$errors['spel'] = "Please fill in your adres";
+			$errors['adres'] = "Gelieve je adres in te vullen";
+		}
+
+		if(empty($data['voornaam'])){
+			$errors['voornaam'] = "Gelieve je voornaam in te vullen";
+		}
+
+		if(empty($data['achtenaam'])){
+			$errors['achternaam'] = "Gelieve je achternaam in te vullen";
 		}
 
 		return $errors;

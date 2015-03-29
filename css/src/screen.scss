@@ -323,6 +323,10 @@ Main
 
 }
 
+.error-message {
+	color: #EB497B;
+}
+
 .login {
 
 	position: absolute;
@@ -538,7 +542,7 @@ input:focus {
 	position: absolute;
 	left: 50%;
 	margin-left: -115px;
-	margin-top: 300px;
+	margin-top: 185px;
 
 	@media only screen
 	and (max-width: 500px) {
@@ -565,7 +569,7 @@ input:focus {
 	position: absolute;
 	left: 50%;
 	margin-left: -115px;
-	margin-top: 300px;
+	margin-top: 185px;
 
 	@media only screen
 	and (max-width: 500px) {

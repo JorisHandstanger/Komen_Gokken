@@ -15,6 +15,16 @@ class UsersController extends Controller {
 
 	}
 
+	public function checkloggedin() {
+		if($_SESSION['user']){
+			header('Content-Type: application/json');
+			echo json_encode($_SESSION['user']);
+		}else{
+			echo false;
+		}
+		die();
+	}
+
 	public function cmslogin(){
 
 			$errors = array();
@@ -31,7 +41,7 @@ class UsersController extends Controller {
 					if(!empty($existing)) {
 						$hasher = new \Phpass\Hash;
 						if ($hasher->checkPassword($_POST['passwordCMS'], $existing['passwordCMS'])) {
-							$_SESSION['user'] = $existing;
+							$_SESSION['cmsuser'] = $existing;
 						} else {
 							$_SESSION['error'] = 'Unknown email / password';
 						}
@@ -116,27 +126,35 @@ class UsersController extends Controller {
 			$errors = array();
 			//email validatie
 			if(empty($_POST['email'])){
-				$errors['email'] = 'Please enter your email address';
+				$errors['email'] = 'Gelieve je email adres in te voeren';
 			}else{
 				$existing= $this->userDAO->selectByEmail($_POST['email']);
 				if(!empty($existing)){
-					$errors['email'] = 'Email adress already used';
+					$errors['email'] = 'Email adres is al in gebruik';
 				}
 			}
 			//password validatie
 			if(empty($_POST['password'])){
-				$errors['password'] = 'Please enter your password';
+				$errors['password'] = 'Gelieve een paswoord in te voeren';
 			}
 			if($_POST['confirm_password'] != $_POST['password']) {
-				$errors['confirm_password'] = 'Passwords mismatch';
+				$errors['confirm_password'] = 'Paswoorden zijn niet hetzelfde';
 			}
 
 			if(empty($_POST['spel'])){
-				$errors['spel'] = 'enter your favorite game';
+				$errors['spel'] = 'Gelieve je favoriete spel in te voeren';
 			}
 
 			if(empty($_POST['adres'])){
-				$errors['adres'] = 'enter your adres';
+				$errors['adres'] = 'Gelieve een adres in te voeren';
+			}
+
+			if(empty($_POST['voornaam'])){
+				$errors['voornaam'] = 'Gelieve je voornaam in te voeren';
+			}
+
+			if(empty($_POST['achternaam'])){
+				$errors['achternaam'] = 'Gelieve je achternaam in te voeren';
 			}
 
 			//als er geen fouten zijn -> password hashen en dergerlijke
@@ -148,6 +166,8 @@ class UsersController extends Controller {
 				$data['password'] = $passwordHash;
 				$data['spel'] = $_POST['spel'];
 				$data['adres'] = $_POST['adres'];
+				$data['voornaam'] = $_POST['voornaam'];
+				$data['achternaam'] = $_POST['achternaam'];
 				$insertedUser = $this->userDAO->insert($data);
 				if(!empty($insertedUser)){
 					$_SESSION['info'] = 'Registration Succes';

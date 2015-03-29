@@ -21,19 +21,17 @@ $routes = array(
         'controller' => 'Users',
         'action' => 'logout'
     ),
-
     'cmslogin' => array(
-
     	'controller' => 'Users',
     	'action' => 'cmslogin'
-
     ),
-
     'cms' => array(
-
     	'controller' => 'App',
     	'action' => 'cms'
-
+    ),
+    'checkloggedin' => array(
+    	'controller' => 'Users',
+    	'action' => 'checkloggedin'
     )
 
 );
