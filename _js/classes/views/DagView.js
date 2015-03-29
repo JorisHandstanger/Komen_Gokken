@@ -1,12 +1,13 @@
-var template = require('../../../_hbs/homeview.hbs');
+var template = require('../../../_hbs/day.hbs');
 var DagView = Backbone.View.extend({
 
 	template: template,
-	tagName: 'main',
-	className: "cd-main-content",
+
 
 	initialize: function(){
-		this.render();
+
+		//this.render();
+
 	},
 
 	render: function(){

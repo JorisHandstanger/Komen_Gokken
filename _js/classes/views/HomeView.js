@@ -1,9 +1,15 @@
 var DagView = require('./DagView.js');
 var DagenCollection = require('../collections/DagenCollection.js');
 
+var template = require('../../../_hbs/homeview.hbs');
+
+
 var HomeView = Backbone.View.extend({
 
-	tagName: 'div',
+	template: template,
+	tagName: 'main',
+	className: "cd-main-content",
+
 
 	events: {
 
@@ -16,22 +22,21 @@ var HomeView = Backbone.View.extend({
 
 	console.log('navigation click');
 
-	event.preventDefault();
-	$('.cd-main-content').addClass('move-out');
-	$('.main-nav').addClass('is-visible');
-	$('.cd-shadow-layer').addClass('is-visible');
-	$('.cd-menu-trigger').prop("disabled", true);
+		event.preventDefault();
+		$('.cd-main-content').addClass('move-out');
+		$('.main-nav').addClass('is-visible');
+		$('.cd-shadow-layer').addClass('is-visible');
+		$('.cd-menu-trigger').prop("disabled", true);
+		$(".cd-main-content").css("overflow-x, hidden;");
 
-	$(".cd-main-content").css("overflow-x, hidden;");
+		//close menu
 
-	//close menu
-
-	$('.cd-close-menu').on('click', function(event){
-	event.preventDefault();
-	$('.cd-main-content').removeClass('move-out');
-	$('.main-nav').removeClass('is-visible');
-	$('.cd-shadow-layer').removeClass('is-visible');
-	$('.cd-menu-trigger').prop("disabled", false);
+		$('.cd-close-menu').on('click', function(event){
+		event.preventDefault();
+		$('.cd-main-content').removeClass('move-out');
+		$('.main-nav').removeClass('is-visible');
+		$('.cd-shadow-layer').removeClass('is-visible');
+		$('.cd-menu-trigger').prop("disabled", false);
 
 	});
 
@@ -39,25 +44,31 @@ var HomeView = Backbone.View.extend({
 
 	initialize: function(){
 
+		this.render();
+
 		this.collection = new DagenCollection();
-		this.listenTo(this.collection, 'sync', this.renderView);
+		this.listenTo(this.collection, 'sync', this.renderViews);
 		this.collection.fetch();
 
 	},
 
-	renderView: function  () {
-		this.$el.empty();
+	renderViews: function  () {
+		this.$days.empty();
 
 		this.collection.forEach(this.renderDay, this);
+
 	},
 
-	renderDay: function  (day) {
+	renderDay: function  (model) {
 		var view = new DagView({
-			model: day
+			model: model
 		});
-		this.$el.append(view.render().el);
+		this.$days.append(view.render().el);
 	},
 	render: function(){
+
+				this.$el.html(this.template());
+
 		return this;
 	}
 
