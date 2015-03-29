@@ -44,8 +44,8 @@ class UserDAO extends DAO {
 			$stmt->bindValue(':password', $data['password']);
 			$stmt->bindValue(':spel', $data['spel']);
 			$stmt->bindValue(':adres', $data['adres']);
-			$stmt->bindValue(':voornaam', $data['achternaam']);
-			$stmt->bindValue(':achternaam', $data['voornaam']);
+			$stmt->bindValue(':voornaam', $data['voornaam']);
+			$stmt->bindValue(':achternaam', $data['achternaam']);
 			if($stmt->execute()) {
 				$insertedId = $this->pdo->lastInsertId();
 				return $this->selectById($insertedId);
@@ -75,7 +75,7 @@ class UserDAO extends DAO {
 			$errors['voornaam'] = "Gelieve je voornaam in te vullen";
 		}
 
-		if(empty($data['achtenaam'])){
+		if(empty($data['achternaam'])){
 			$errors['achternaam'] = "Gelieve je achternaam in te vullen";
 		}
 

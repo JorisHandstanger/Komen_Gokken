@@ -66,7 +66,7 @@
 
 	</form>
 
-	<a href="index.php?page=login">terug</a>
+		<a href="index.php?page=login">terug</a>
 
 	</div>
 

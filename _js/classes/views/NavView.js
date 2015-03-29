@@ -7,6 +7,8 @@ var NavView = Backbone.View.extend({
 	className: "main-nav",
 
 
+
+
 	initialize: function(){
 		this.render();
 	},

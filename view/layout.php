@@ -10,6 +10,8 @@
 </head>
 <body>
 
+		<h1>Komen gokken</h1>
+
 		<div class="container">
 
 			<?php echo $content; ?>

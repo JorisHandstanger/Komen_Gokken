@@ -15,7 +15,7 @@ var SlotMachineView = Backbone.View.extend({
 
 	GaNaarHome: function() {
 
-		 Window.Application.navigate("home", {trigger: true, replace:true});
+		 Window.Application.navigate("home", {trigger: true});
 
 	},
 

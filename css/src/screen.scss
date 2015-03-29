@@ -481,6 +481,7 @@ input:focus {
     position: relative;
     z-index: -1;
 }
+
 .slotbutton {
 
 	  font-family: 'phosphateinlineroman';
@@ -495,8 +496,9 @@ input:focus {
 		outline: none;
 		border-radius: 2px;
 		padding: 15px;
-		color: #C4C4C4;
+		color: #fff;
 		cursor: pointer;
+
 	}
 
 .default {
@@ -542,7 +544,7 @@ input:focus {
 	position: absolute;
 	left: 50%;
 	margin-left: -115px;
-	margin-top: 185px;
+	margin-top: 295px;
 
 	@media only screen
 	and (max-width: 500px) {
@@ -569,7 +571,7 @@ input:focus {
 	position: absolute;
 	left: 50%;
 	margin-left: -115px;
-	margin-top: 185px;
+	margin-top: 295px;
 
 	@media only screen
 	and (max-width: 500px) {
@@ -661,6 +663,9 @@ input:focus {
 }
 
 
+body h1 {
+	display: none;
+}
 
 
 

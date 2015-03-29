@@ -13,7 +13,7 @@ var RouletteView = Backbone.View.extend({
 
 	GaNaarIndeling: function(e){
 
-		 Window.Application.navigate("indeling", {trigger: true, replace:true});
+		 Window.Application.navigate("indeling", {trigger: true});
 
 	},
 
