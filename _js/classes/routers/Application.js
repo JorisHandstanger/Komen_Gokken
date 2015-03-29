@@ -3,6 +3,10 @@ var slotmachineview = require('../views/SlotMachineView.js');
 var homeview = require('../views/HomeView.js');
 var rouletteview = require('../views/RouletteView.js');
 
+var klassementview = require('../views/Klassement.js');
+
+var kalenderview = require('../views/Kalender.js');
+
 var Application = Backbone.Router.extend({
 
 	routes: {
@@ -10,6 +14,8 @@ var Application = Backbone.Router.extend({
 		"indeling": "indeling",
 		"deelnemen": "deelnemen",
 		"home": "home",
+		"klassement": "klassement",
+		"kalender": "kalender",
 		"*actions": "default"
 
 	},
@@ -39,10 +45,8 @@ var Application = Backbone.Router.extend({
 
 		this.empty();
 
-
 		this.deelnemen = new rouletteview();
 		$('.container').append(this.deelnemen.render().el);
-
 
 	},
 
@@ -57,6 +61,27 @@ var Application = Backbone.Router.extend({
 		$('.container').append(this.home.render().el);
 
 	},
+
+	klassement: function(){
+
+		this.nav = new navView();
+		$('.container').append(this.nav.render().el);
+
+		this.klassement = new klassementview();
+		$('.container').append(this.klassement.render().el);
+
+	},
+
+	kalender: function(){
+
+		this.nav = new navView();
+		$('.container').append(this.nav.render().el);
+
+		this.kalender = new kalenderview();
+		$('.container').append(this.kalender.render().el);
+
+
+	}
 
 });
 

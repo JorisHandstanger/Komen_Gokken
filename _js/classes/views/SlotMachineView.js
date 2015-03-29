@@ -94,7 +94,7 @@ var SlotMachineView = Backbone.View.extend({
 		var dag = this.verdeling.indexOf(naam);
 
 		$('#dag')[0].innerHTML = dag;
-    $('.roulettePopUp').delay( 7500 ).fadeIn( 600 );
+    $('.roulettePopUp').delay( 5500 ).fadeIn( 600 );
 
 		this.slot1.roll();
 
