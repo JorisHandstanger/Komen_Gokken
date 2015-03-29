@@ -1,0 +1,21 @@
+var template = require('../../../_hbs/homeview.hbs');
+var DagView = Backbone.View.extend({
+
+	template: template,
+	tagName: 'main',
+	className: "cd-main-content",
+
+	initialize: function(){
+		this.render();
+	},
+
+	render: function(){
+
+		this.$el.html(this.template(this.model.attributes));
+		return this;
+
+	}
+
+});
+
+module.exports = DagView;

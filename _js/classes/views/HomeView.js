@@ -1,10 +1,9 @@
-var template = require('../../../_hbs/homeview.hbs');
+var DagView = require('./DagView.js');
+var DagenCollection = require('../collections/DagenCollection.js');
 
 var HomeView = Backbone.View.extend({
 
-	template: template,
-	tagName: 'main',
-	className: "cd-main-content",
+	tagName: 'div',
 
 	events: {
 
@@ -40,15 +39,26 @@ var HomeView = Backbone.View.extend({
 
 	initialize: function(){
 
-		this.render();
+		this.collection = new DagenCollection();
+		this.listenTo(this.collection, 'sync', this.renderView);
+		this.collection.fetch();
 
 	},
 
+	renderView: function  () {
+		this.$el.empty();
+
+		this.collection.forEach(this.renderDay, this);
+	},
+
+	renderDay: function  (day) {
+		var view = new DagView({
+			model: day
+		});
+		this.$el.append(view.render().el);
+	},
 	render: function(){
-
-		this.$el.html(this.template());
 		return this;
-
 	}
 
 });

@@ -1,13 +1,4 @@
-var Gokken = Backbone.Model.extend({
-
-
-	defaults: {
-
-		"dagen": "",
-
-	},
-
-	url: '/Komen_Gokken/api/logins/',
+var Dag = Backbone.Model.extend({
 
 	sync: function(method, model, options) {
 		if(model.methodUrl && model.methodUrl(method.toLowerCase())) {
@@ -15,8 +6,8 @@ var Gokken = Backbone.Model.extend({
 			options.url = model.methodUrl(method.toLowerCase());
 		}
     Backbone.Collection.prototype.sync.apply(this, arguments);
-	},
+	}
 
 });
 
-module.exports = Gokken;
+module.exports = Dag;
